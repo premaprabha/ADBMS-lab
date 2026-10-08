@@ -1,20 +1,37 @@
 DECLARE
-    a NUMBER := &a;
-    b NUMBER := &b;
-    c NUMBER;
+    f   NUMBER := 10;
+    s   NUMBER := 5;
+    uoc NUMBER := 1;
+
 BEGIN
-    -- Arithmetic Operators
-    DBMS_OUTPUT.PUT_LINE('Addition = ' || (a + b));
-    DBMS_OUTPUT.PUT_LINE('Subtraction = ' || (a - b));
-    DBMS_OUTPUT.PUT_LINE('Multiplication = ' || (a * b));
-    DBMS_OUTPUT.PUT_LINE('Division = ' || (a / b));
-    DBMS_OUTPUT.PUT_LINE('Remainder = ' || MOD(a, b));
+    IF uoc = 1 THEN
+        DBMS_OUTPUT.PUT_LINE('Add ' || (f + s));
 
-    -- Relational Operators
-    IF a > b THEN
-        DBMS_OUTPUT.PUT_LINE('a is greater than b');
-    END IF;
+    ELSIF uoc = 2 THEN
+        DBMS_OUTPUT.PUT_LINE('Sub ' || (f - s));
 
-    IF a = b THEN
-        DBMS_OUTPUT.PUT_LINE('a is equal to b');
+    ELSIF uoc = 3 THEN
+        DBMS_OUTPUT.PUT_LINE('Multiply ' || (f * s));
+
+    ELSIF uoc = 4 THEN
+        DBMS_OUTPUT.PUT_LINE('Division ' || (f / s));
+
+    ELSIF uoc = 5 THEN
+        DBMS_OUTPUT.PUT_LINE('Modulus ' || MOD(f, s));
+
+    ELSIF uoc = 6 THEN
+        IF f < s THEN
+            DBMS_OUTPUT.PUT_LINE(s || ' is greater than ' || f);
+        ELSE
+            DBMS_OUTPUT.PUT_LINE(f || ' is greater than ' || s);
+        END IF;
+
+    ELSIF uoc = 7 THEN
+        IF f != 0 AND f = 1 THEN
+            DBMS_OUTPUT.PUT_LINE('True');
+        ELSE
+            DBMS_OUTPUT.PUT_LINE('False');
+        END IF;
     END IF;
+END;
+/
