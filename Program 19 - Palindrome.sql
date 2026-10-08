@@ -1,20 +1,21 @@
 DECLARE
-    n NUMBER := &n;
+    num NUMBER := 121;
     temp NUMBER;
     digit NUMBER;
-    rev NUMBER := 0;
+    reverse_num NUMBER := 0;
 BEGIN
-    temp := n;
+    temp := num;
 
     WHILE temp > 0 LOOP
         digit := MOD(temp, 10);
-        rev := (rev * 10) + digit;
+        reverse_num := reverse_num * 10 + digit;
         temp := TRUNC(temp / 10);
     END LOOP;
 
-    IF rev = n THEN
-        DBMS_OUTPUT.PUT_LINE(n || ' is a Palindrome');
+    IF num = reverse_num THEN
+        DBMS_OUTPUT.PUT_LINE(num || ' is a Palindrome');
     ELSE
-        DBMS_OUTPUT.PUT_LINE(n || ' is not a Palindrome');
+        DBMS_OUTPUT.PUT_LINE(num || ' is Not a Palindrome');
     END IF;
 END;
+/
