@@ -1,22 +1,26 @@
 DECLARE
-    n NUMBER := &n;
+    num NUMBER := 17;
     i NUMBER;
     flag NUMBER := 0;
 BEGIN
-    IF n <= 1 THEN
+    IF num <= 1 THEN
         flag := 1;
     ELSE
-        FOR i IN 2..TRUNC(SQRT(n)) LOOP
-            IF MOD(n, i) = 0 THEN
+        i := 2;
+
+        WHILE i <= SQRT(num) LOOP
+            IF MOD(num, i) = 0 THEN
                 flag := 1;
                 EXIT;
             END IF;
+
+            i := i + 1;
         END LOOP;
     END IF;
 
     IF flag = 0 THEN
-        DBMS_OUTPUT.PUT_LINE(n || ' is a Prime Number');
+        DBMS_OUTPUT.PUT_LINE(num || ' is a Prime Number');
     ELSE
-        DBMS_OUTPUT.PUT_LINE(n || ' is not a Prime Number');
+        DBMS_OUTPUT.PUT_LINE(num || ' is Not a Prime Number');
     END IF;
 END;
